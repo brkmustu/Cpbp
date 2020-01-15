@@ -14,8 +14,6 @@ namespace Cpbp
     {
         private const string CliAppMethodName = "Handle";
 
-        //private static Container IocContainer;
-
         protected readonly string argumentSeperator = "--";
 
         protected List<string> clibpApplicationNames = new List<string>();
@@ -52,7 +50,7 @@ namespace Cpbp
             {
                 IsDisposed = false;
 
-                CpbpParams.Args = args;
+                SetArguments(args);
 
                 CpbpBootstrapper.IocContainer = new Container();
 
@@ -68,6 +66,29 @@ namespace Cpbp
 
                 Run();
             }
+        }
+
+        /// <summary>
+        /// Separate parameters with applications
+        /// </summary>
+        /// <param name="args"></param>
+        private void SetArguments(string[] args)
+        {
+            var applications = GetApplicationTypesAndInstances();
+
+            List<string> arguments = new List<string>();
+
+            foreach (var arg in args)
+            {
+                bool isContain = false;
+                foreach (var application in applications)
+                    if (arg.Contains(application.Key.Name))
+                        isContain = true;
+                if (!isContain)
+                    arguments.Add(arg);
+            }
+
+            CpbpParams.Args = arguments.ToArray();
         }
 
         /// <summary>
@@ -102,7 +123,7 @@ namespace Cpbp
             {
                 foreach (var command in orderedCommands)
                 {
-                    if (argument.Equals(command.Key.Name)) Execute(argument, command.Key, command.Value);
+                    if (argument.Equals(argumentSeperator + command.Key.Name)) Execute(argument, command.Key, command.Value);
                 }
             }
         }

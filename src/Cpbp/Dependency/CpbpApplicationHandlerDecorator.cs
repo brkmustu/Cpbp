@@ -65,6 +65,7 @@ namespace Cpbp.Dependency
             application.Log += Environment.NewLine + exception.ToString();
             application.Exception = exception;
             application.IsSuccess = false;
+            Console.WriteLine(application.Log);
         }
     }
 }

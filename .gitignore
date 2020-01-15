@@ -2,3 +2,12 @@ src/.vs
 src/packages
 src/Cpbp/bin
 src/Cpbp/obj
+/src/Cpbp/lib/net472
+/src/Cpbp/Cpbp.1.0.4.nupkg
+/src/Cpbp/Cpbp.1.0.3.nupkg
+/src/Cpbp/Cpbp.1.0.2.nupkg
+/src/Cpbp/Cpbp.1.0.1.nupkg
+/src/Cpbp/Cpbp.1.0.0.nupkg
+/src/Cpbp/paketle.bat
+/src/Cpbp/nuget.exe
+/src/Cpbp/Cpbp.nuspec
