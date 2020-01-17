@@ -12,3 +12,4 @@ src/Cpbp/obj
 /src/Cpbp/nuget.exe
 /src/Cpbp/Cpbp.nuspec
 /.vs
+/src/Cpbp/*.snk
