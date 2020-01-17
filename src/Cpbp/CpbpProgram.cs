@@ -1,41 +1,66 @@
-﻿using Cpbp.Contracts;
-using Cpbp.Dependency;
-using SimpleInjector;
+﻿using SimpleInjector;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cpbp
 {
+    /// <summary>
+    /// Cpbp cli application base. The "Program" class in the console application must be inherited from this class.
+    /// </summary>
     public class CpbpProgram : IDisposable
     {
-        private const string CliAppMethodName = "Handle";
+        /// <summary>
+        /// The name of the method that will run the application partition in the interface (Cpbp.Dependency.ICpbpApplicationHandler<>).
+        /// </summary>
+        private const string CliApplicationMethodName = "Handle";
 
-        protected readonly string argumentSeperator = "--";
+        /// <summary>
+        /// is the suffix name of the types of Cpbp applications to be searched for.
+        /// </summary>
+        private const string CpbpApplicationRootName = "Application";
 
-        protected List<string> clibpApplicationNames = new List<string>();
+        /// <summary>
+        ///  is the suffix name of the types of Cpbp application handlers to be searched for.
+        /// </summary>
+        private const string CpbpApplicationHandlerRootName = "ApplicationHandler";
 
-        protected static List<Type> assemblyTypes = new List<Type>();
+        /// <summary>
+        /// The logical name of the property to store the parameter value that may be used during execution of the Cpbp application partition.
+        /// </summary>
+        private const string CpbpApplicationParameterPropertyName = "ApplicationParameter";
 
-        protected static Dictionary<Type, object> GetApplicationTypesAndInstances() =>
+        /// <summary>
+        /// The logical name of the field that will allow Cpbp applications to be sorted.
+        /// </summary>
+        private const string CpbpApplicationOrderFieldLogicalName = "ExecutationOrder";
+
+        /// <summary>
+        /// The logical name of the field that will allow control of required application partitions in Cpbp applications.
+        /// </summary>
+        private const string CpbpApplicationRequiredFieldLogicalName = "IsRequired";
+
+        /// <summary>
+        /// separator for cli application arguments.
+        /// </summary>
+        private readonly string CpbpArgumentSeperator = "--";
+
+        /// <summary>
+        /// parametric types are given in assemblies.
+        /// </summary>
+        private static List<Type> AssemblyTypes = new List<Type>();
+
+        protected static IEnumerable<Type> GetApplicationTypes() =>
             (
-                from type in assemblyTypes
-                where type.Name.EndsWith("Application")
-                select new DictonaryDto
-                {
-                    Key = type,
-                    Value = Activator.CreateInstance(type)
-                }
-            )
-            .OrderBy(x=>x.Value.GetType().GetProperty("ExecutationOrder").GetValue(x.Value))
-            .ToDictionary(x => x.Key, x => x.Value);
+                from type in AssemblyTypes
+                where type.Name.EndsWith(CpbpApplicationRootName)
+                select type
+            );
 
         protected static IEnumerable<Type> GetApplicationHandlerTypes() =>
-            from type in assemblyTypes
-            where type.Name.EndsWith("ApplicationHandler")
+            from type in AssemblyTypes
+            where type.Name.EndsWith(CpbpApplicationHandlerRootName)
             select type;
 
         /// <summary>
@@ -43,112 +68,139 @@ namespace Cpbp
         /// </summary>
         /// <param name="args">Cli arguments</param>
         /// <param name="assemblies">Ioc container registration assemlies.</param>
-        /// <param name="bootstrapper">For custom bootstrapper or ioc registrations (Optional).</param>
-        public void ProgramStart(string[] args, Assembly[] assemblies, CpbpBootstrapper bootstrapper = null)
+        /// <param name="applicationModule">For custom module or ioc registrations (Optional).</param>
+        public static void ProgramStart(string[] args, Assembly[] assemblies, CpbpModule applicationModule = null)
         {
             using (CpbpProgram program = new CpbpProgram())
             {
-                IsDisposed = false;
+                program.IsDisposed = false;
 
-                SetArguments(args);
+                if (CpbpModule.IocContainer == null) CpbpModule.IocContainer = new Container();
 
-                CpbpBootstrapper.IocContainer = new Container();
+                if (applicationModule == null) applicationModule = new CpbpModule();
 
-                if (bootstrapper == null) bootstrapper = new CpbpBootstrapper();
-
-                bootstrapper.Bootstrap(CpbpBootstrapper.IocContainer, assemblies);
+                applicationModule.Bootstrap(CpbpModule.IocContainer, assemblies);
 
                 /// assembly types on memory
                 assemblies.ToList()
                     .ForEach(
-                        x => assemblyTypes.AddRange(x.GetExportedTypes())
+                        x => AssemblyTypes.AddRange(x.GetExportedTypes())
                     );
 
-                Run();
+                program.SetArguments(args);
+
+                program.Run();
             }
         }
 
         /// <summary>
-        /// Separate parameters with applications
+        /// Separate parameters and application partitions.
         /// </summary>
         /// <param name="args"></param>
         private void SetArguments(string[] args)
         {
-            var applications = GetApplicationTypesAndInstances();
+            var applications = GetApplicationTypes();
 
             List<string> arguments = new List<string>();
 
-            foreach (var arg in args)
+            for (int i = 0; i < args.Length; i++)
             {
+                string arg = args[i];
+
                 bool isContain = false;
+
                 foreach (var application in applications)
-                    if (arg.Contains(application.Key.Name))
+                    if (arg.Contains(application.Name))
                         isContain = true;
-                if (!isContain)
+
+                if (isContain && arg.Contains(CpbpArgumentSeperator))
+                {
                     arguments.Add(arg);
+
+                    if (args.Length > i + 1 && !args[i + 1].Contains(CpbpArgumentSeperator)) CpbpParameters.Arguments.Add(arg, args[i + 1]);
+                }
             }
 
-            CpbpParams.Args = arguments.ToArray();
+            CpbpParameters.Applications = arguments.ToArray();
         }
 
         /// <summary>
-        /// Executes commands specified in cli arguments.
+        /// Executes applications specified in cli arguments.
         /// </summary>
         public virtual void Run()
         {
-            var orderedCommands = GetApplicationTypesAndInstances();
+            var applicationTypes = GetApplicationTypes();
 
-            var requiredCommands = orderedCommands
-                .Where(
-                    x => 
-                        ((bool)x.Value
-                            .GetType()
-                            .GetProperty("IsRequired")
-                            .GetValue(x.Value))
-                            .Equals(true)
-                ).ToList();
+            List<Type> requiredApplications = new List<Type>();
 
-            /// executes commands sequentially
-            foreach (var command in requiredCommands)
+            foreach (var item in applicationTypes)
             {
-                if (!CpbpParams.Args.Contains(argumentSeperator + command.Key.Name))
+                var instance = CpbpModule.IocContainer.GetInstance(item);
+
+                var IsRequired = (bool)instance
+                            .GetType()
+                            .GetProperty(CpbpApplicationRequiredFieldLogicalName)
+                            .GetValue(instance);
+
+                if (IsRequired) requiredApplications.Add(item);
+            }
+
+            /// check required applications existing
+            foreach (var command in requiredApplications)
+            {
+                if (!CpbpParameters.Applications.Contains(CpbpArgumentSeperator + command.Name))
                 {
                     Console.WriteLine();
-                    throw new Exception($"You did not call a required command! Command name : {command.Key.Name}");
+
+                    throw new Exception($"You did not call a required command! Command name : {command.Name}");
                 }
             }
 
-            /// execute commands
-            foreach (var argument in CpbpParams.Args)
+            var orderedApplications = (
+                    from a in applicationTypes
+                    orderby ((int)a.GetProperty(CpbpApplicationOrderFieldLogicalName).GetValue(Activator.CreateInstance(a)))
+                    select a
+                ).ToList();
+
+            /// execute applications
+            foreach (var application in CpbpParameters.Applications)
             {
-                foreach (var command in orderedCommands)
+                foreach (var command in orderedApplications)
                 {
-                    if (argument.Equals(argumentSeperator + command.Key.Name)) Execute(argument, command.Key, command.Value);
+                    if (application.Equals(CpbpArgumentSeperator + command.Name))
+                    {
+                        Execute(application, command, CpbpModule.IocContainer.GetInstance(command));
+                    }
                 }
             }
         }
 
         /// <summary>
-        /// 
+        /// is the method that runs the application partition.
         /// </summary>
-        /// <param name="argument"></param>
-        protected void Execute(string argument, Type applicationType, object commandInstance)
+        /// <param name="application">cpbp application name (Cpbp is the name of the application partition that inherits the Application class and ends with the suffix "Application")</param>
+        /// <param name="applicationType">cpbp application type</param>
+        /// <param name="applicationInstance">cpbp application instance</param>
+        protected void Execute(string application, Type applicationType, object applicationInstance)
         {
-            if (argument.Contains(argumentSeperator))
+            if (application.Contains(CpbpArgumentSeperator))
             {
-                CpbpParams.Argument = argument.Replace(argumentSeperator, "");
-                CpbpParams.Value = string.Empty;
-                CpbpParams.Value = GetArgValue(CpbpParams.Args, CpbpParams.Argument);
+                string currentArgument = application.Replace(CpbpArgumentSeperator, "");
+                string currentArgumentParameter = GetArgumentParameter(CpbpParameters.Applications, currentArgument);
 
-                Type applicationServiceType;
-
-                var handler = GetApplicationInstanceAndServiceType(applicationType, out applicationServiceType);
+                var handler = GetApplicationInstance(applicationType);
 
                 if (handler != null)
                 {
-                    var method = handler.GetType().GetMethod(CliAppMethodName);
-                    commandInstance.GetType().GetProperty("Value").SetValue(commandInstance, CpbpParams.Value);
-                    method.Invoke(handler, new object[] { commandInstance });
+                    var method = handler.GetType().GetMethod(CliApplicationMethodName);
+
+                    if(!string.IsNullOrEmpty(currentArgumentParameter)) 
+                        applicationInstance
+                            .GetType()
+                            .GetProperty(CpbpApplicationParameterPropertyName)
+                            .SetValue(applicationInstance, currentArgumentParameter);
+                    
+                    method.Invoke(handler, new object[] { applicationInstance });
                 }
             }
         }
@@ -156,16 +208,13 @@ namespace Cpbp
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="applicationType"></param>
-        /// <param name="applicationServiceType"></param>
+        /// <param name="applicationType">Type inherited from "CpbpApplication". Not handler type</param>
         /// <returns></returns>
-        private object GetApplicationInstanceAndServiceType(Type applicationType, out Type applicationServiceType)
+        private object GetApplicationInstance(Type applicationType)
         {
             var handlerTypes = GetApplicationHandlerTypes();
 
-            applicationServiceType = null;
-
-            var instanceProducer = CpbpBootstrapper.IocContainer.GetCurrentRegistrations();
+            var instanceProducer = CpbpModule.IocContainer.GetCurrentRegistrations();
 
             List<Type> implementedInterfaces = new List<Type>();
 
@@ -183,8 +232,7 @@ namespace Cpbp
                     {
                         if (serviceItem.ServiceType.GenericTypeArguments.Contains(genericTypeArgument))
                         {
-                            applicationServiceType = serviceItem.ServiceType;
-                            return CpbpBootstrapper.IocContainer.GetInstance(serviceItem.ServiceType);
+                            return CpbpModule.IocContainer.GetInstance(serviceItem.ServiceType);
                         }
                     }
                 }
@@ -194,12 +242,12 @@ namespace Cpbp
         }
 
         /// <summary>
-        /// 
+        /// Returns the parameter value of the argument passed with the parameter
         /// </summary>
-        /// <param name="args"></param>
-        /// <param name="argument"></param>
+        /// <param name="args">default application arguments</param>
+        /// <param name="argument">parameter value is the searched argument</param>
         /// <returns></returns>
-        protected string GetArgValue(string[] args, string argument)
+        protected string GetArgumentParameter(string[] args, string argument)
         {
             try
             {
@@ -212,13 +260,13 @@ namespace Cpbp
         }
 
         /// <summary>
-        /// 
+        /// get type by name
         /// </summary>
-        /// <param name="name"></param>
+        /// <param name="name">type name</param>
         /// <returns></returns>
         protected Type GetTypeByName(string name)
         {
-            return (from types in assemblyTypes
+            return (from types in AssemblyTypes
                     where types.Name == name
                     select types).First();
         }
@@ -236,19 +284,13 @@ namespace Cpbp
                 return;
             }
 
-            assemblyTypes = null;
+            AssemblyTypes = null;
 
-            CpbpBootstrapper.IocContainer= null;
+            CpbpModule.IocContainer= null;
 
             GC.SuppressFinalize(this);
 
             IsDisposed = true;
-        }
-
-        private class DictonaryDto
-        {
-            public Type Key { get; set; }
-            public object Value { get; set; }
         }
     }
 }

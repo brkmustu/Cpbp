@@ -4,6 +4,10 @@ using System.Diagnostics;
 
 namespace Cpbp.Dependency
 {
+    /// <summary>
+    /// basic info and error log decorator
+    /// </summary>
+    /// <typeparam name="TApplication"></typeparam>
     public class CpbpApplicationHandlerDecorator<TApplication> : ICpbpApplicationHandler<TApplication>
         where TApplication : CpbpApplication
     {
@@ -26,7 +30,7 @@ namespace Cpbp.Dependency
 
                 InfoLog(application, $"{application.Name} named application started.");
 
-                if (!string.IsNullOrEmpty(application.Value)) InfoLog(application, $"Value : {application.Value}");
+                if (!string.IsNullOrEmpty(application.ApplicationParameter)) InfoLog(application, $"Value : {application.ApplicationParameter}");
 
                 stopwatch.Start();
 
@@ -35,6 +39,8 @@ namespace Cpbp.Dependency
                 stopwatch.Stop();
 
                 application.Performance = stopwatch.Elapsed.TotalSeconds;
+
+                application.EndDate = DateTime.UtcNow;
 
                 InfoLog(application, $"{application.Name} named application finished.");
 
@@ -46,14 +52,14 @@ namespace Cpbp.Dependency
             {
                 ErrorLog(application, ex);
 
-                throw ex;
+                if (application.IsThrowException) throw ex;
             }
         }
 
         private void InfoLog(TApplication application, string message)
         {
             Console.WriteLine(message);
-            application.Log += Environment.NewLine + message;
+            application.LogBuilder.AppendLine(message);
         }
 
         private void ErrorLog(TApplication application, Exception exception)
@@ -62,10 +68,10 @@ namespace Cpbp.Dependency
 
             application.EndDate = DateTime.UtcNow;
             application.Performance = stopwatch.Elapsed.TotalSeconds;
-            application.Log += Environment.NewLine + exception.ToString();
+            application.LogBuilder.AppendLine(exception.ToString());
             application.Exception = exception;
             application.IsSuccess = false;
-            Console.WriteLine(application.Log);
+            Console.WriteLine(application.LogBuilder.ToString());
         }
     }
 }

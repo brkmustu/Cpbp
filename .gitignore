@@ -11,3 +11,4 @@ src/Cpbp/obj
 /src/Cpbp/paketle.bat
 /src/Cpbp/nuget.exe
 /src/Cpbp/Cpbp.nuspec
+/.vs
