@@ -186,7 +186,10 @@ namespace Cpbp
             if (application.Contains(CpbpArgumentSeperator))
             {
                 string currentArgument = application.Replace(CpbpArgumentSeperator, "");
-                string currentArgumentParameter = GetArgumentParameter(CpbpParameters.Applications, currentArgument);
+
+                string currentArgumentParameter;
+                
+                CpbpParameters.Arguments.TryGetValue(application, out currentArgumentParameter);
 
                 var handler = GetApplicationInstance(applicationType);
 
@@ -239,24 +242,6 @@ namespace Cpbp
             }
 
             return null;
-        }
-
-        /// <summary>
-        /// Returns the parameter value of the argument passed with the parameter
-        /// </summary>
-        /// <param name="args">default application arguments</param>
-        /// <param name="argument">parameter value is the searched argument</param>
-        /// <returns></returns>
-        protected string GetArgumentParameter(string[] args, string argument)
-        {
-            try
-            {
-                return args[args.ToList().FindIndex(x => x.Equals(argument)) + 2];
-            }
-            catch (Exception)
-            {
-                return null;
-            }
         }
 
         /// <summary>

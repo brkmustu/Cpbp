@@ -28,9 +28,9 @@ namespace Cpbp.Dependency
             {
                 application.StartDate = DateTime.UtcNow;
 
-                InfoLog(application, $"{application.Name} named application started.");
+                InfoLog(application, $"{application.Name} named application part started.");
 
-                if (!string.IsNullOrEmpty(application.ApplicationParameter)) InfoLog(application, $"Value : {application.ApplicationParameter}");
+                if (!string.IsNullOrEmpty(application.ApplicationParameter)) InfoLog(application, $"ApplicationParameter : {application.ApplicationParameter}");
 
                 stopwatch.Start();
 
@@ -42,9 +42,13 @@ namespace Cpbp.Dependency
 
                 application.EndDate = DateTime.UtcNow;
 
-                InfoLog(application, $"{application.Name} named application finished.");
+                InfoLog(application, $"{application.Name} named application part finished.");
 
-                InfoLog(application, $"Application performance : {application.Performance}");
+                InfoLog(application, $"Performance : {application.Performance}");
+
+                InfoLog(application, $"Start date : {application.StartDate}");
+                
+                InfoLog(application, $"End date : {application.EndDate}");
 
                 application.IsSuccess = true;
             }

@@ -13,3 +13,9 @@ src/Cpbp/obj
 /src/Cpbp/Cpbp.nuspec
 /.vs
 /src/Cpbp/*.snk
+/Samples/packages
+/Samples/.vs/Samples/v16
+/Samples/SimpleUsage/obj/Debug
+/Samples/SimpleUsage/bin/Debug
+/Samples/WithModuleUsage/obj/Debug
+/Samples/WithModuleUsage/bin/Debug

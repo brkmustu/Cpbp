@@ -7,6 +7,7 @@ namespace Cpbp
 {
     /// <summary>
     /// Cpbp application base module
+    /// You can add the services and classes you want to register here by override the "CustomRegistrations" method.
     /// </summary>
     public class CpbpModule : IDisposable
     {

@@ -59,6 +59,7 @@ namespace Cpbp.Contracts
         {
             Name = this.GetType().Name;
             IsThrowException = true;
+            LogBuilder = new StringBuilder();
         }
 
         public override string ToString()

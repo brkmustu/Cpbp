@@ -6,7 +6,7 @@
     <AssemblyName>Cpbp</AssemblyName>
     <PackageId>Cpbp</PackageId>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.2</Version>
+    <Version>1.0.2.1</Version>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/brkmustu/Cpbp</RepositoryUrl>
     <PackageTags>Cpbp Cli CliApplication CommandPrompt Terminal Boilerplate</PackageTags>
@@ -16,10 +16,9 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>Cpbp.snk</AssemblyOriginatorKeyFile>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
-    <DocumentationFile></DocumentationFile>
+    <Description>Cpbp is a cli (command line interface) application infrastructure.</Description>
+    <PackageLicenseExpression></PackageLicenseExpression>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
@@ -38,6 +37,13 @@
 
   <ItemGroup>
     <PackageReference Include="SimpleInjector" Version="4.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
