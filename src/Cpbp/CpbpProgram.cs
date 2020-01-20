@@ -69,9 +69,10 @@ namespace Cpbp
         /// <param name="args">Cli arguments</param>
         /// <param name="assemblies">Ioc container registration assemlies.</param>
         /// <param name="applicationModule">For custom module or ioc registrations (Optional).</param>
-        public static void ProgramStart(string[] args, Assembly[] assemblies, CpbpModule applicationModule = null)
+        public static void ProgramStart<TProgram>(string[] args, Assembly[] assemblies, CpbpModule applicationModule = null)
+            where TProgram : CpbpProgram
         {
-            using (CpbpProgram program = new CpbpProgram())
+            using (CpbpProgram program = Activator.CreateInstance<TProgram>())
             {
                 program.IsDisposed = false;
 
