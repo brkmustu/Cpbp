@@ -8,6 +8,15 @@
           "build/netstandard1.0/coverlet.collector.targets": {}
         }
       },
+      "Cpbp.Core/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Cpbp.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Cpbp.Core.dll": {}
+        }
+      },
       "Microsoft.CodeCoverage/16.2.0": {
         "type": "package",
         "compile": {
@@ -2066,16 +2075,6 @@
         "runtime": {
           "bin/placeholder/Cpbp.dll": {}
         }
-      },
-      "Cpbp.Core/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "compile": {
-          "bin/placeholder/Cpbp.Core.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Cpbp.Core.dll": {}
-        }
       }
     }
   },
@@ -2105,6 +2104,20 @@
         "build/netstandard1.0/coverlet.core.pdb",
         "coverlet.collector.1.0.1.nupkg.sha512",
         "coverlet.collector.nuspec"
+      ]
+    },
+    "Cpbp.Core/1.0.0": {
+      "sha512": "od6GfV+ajhhtDOBC0zc39rauNQkUtBwJ/x4/feNKlRgPjioSMzm2BNFOgwe4qUjMWJe6S4ntgUac8PmZKs6FOA==",
+      "type": "package",
+      "path": "cpbp.core/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "cpbp.core.1.0.0.nupkg.sha512",
+        "cpbp.core.nuspec",
+        "lib/net452/Cpbp.Core.dll",
+        "lib/net472/Cpbp.Core.dll",
+        "lib/netstandard2.0/Cpbp.Core.dll"
       ]
     },
     "Microsoft.CodeCoverage/16.2.0": {
@@ -7027,11 +7040,6 @@
       "type": "project",
       "path": "../Cpbp/Cpbp.csproj",
       "msbuildProject": "../Cpbp/Cpbp.csproj"
-    },
-    "Cpbp.Core/1.0.0": {
-      "type": "project",
-      "path": "../Cpbp.Core/Cpbp.Core.csproj",
-      "msbuildProject": "../Cpbp.Core/Cpbp.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
