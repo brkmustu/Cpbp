@@ -14,3 +14,18 @@ Finally, just inherit the ```Program``` class, the main class of your console ap
 #### Module Usage
 
 You can examine the sample project for module usage. the relevant documentation will be added soon.
+
+### You can easily run your console application using fluent interface
+
+            new CpbpModule()
+                .SetOptions(
+                    x =>
+                    {
+                        x.Requirements(
+                                assemblies: assemblies,
+                                args: args
+                            );
+                    }
+                )
+                .GetProgram()
+                .Run();
