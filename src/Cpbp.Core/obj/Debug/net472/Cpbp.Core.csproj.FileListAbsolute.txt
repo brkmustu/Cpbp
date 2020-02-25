@@ -1,7 +1,0 @@
-C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Core\bin\Debug\net472\Cpbp.Core.dll
-C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Core\bin\Debug\net472\Cpbp.Core.pdb
-C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Core\obj\Debug\net472\Cpbp.Core.csprojAssemblyReference.cache
-C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Core\obj\Debug\net472\Cpbp.Core.AssemblyInfoInputs.cache
-C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Core\obj\Debug\net472\Cpbp.Core.AssemblyInfo.cs
-C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Core\obj\Debug\net472\Cpbp.Core.dll
-C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Core\obj\Debug\net472\Cpbp.Core.pdb
