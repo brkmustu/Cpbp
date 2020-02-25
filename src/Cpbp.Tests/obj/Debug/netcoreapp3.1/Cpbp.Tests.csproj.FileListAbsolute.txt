@@ -1,6 +1,3 @@
-C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Tests\obj\Debug\netcoreapp3.1\Cpbp.Tests.csprojAssemblyReference.cache
-C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Tests\obj\Debug\netcoreapp3.1\Cpbp.Tests.AssemblyInfoInputs.cache
-C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Tests\obj\Debug\netcoreapp3.1\Cpbp.Tests.AssemblyInfo.cs
 C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Tests\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Tests\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
 C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Tests\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
@@ -9,6 +6,7 @@ C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Tests\bin\Debug\netcoreapp3.1\Cpbp.Te
 C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Tests\bin\Debug\netcoreapp3.1\Cpbp.Tests.runtimeconfig.dev.json
 C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Tests\bin\Debug\netcoreapp3.1\Cpbp.Tests.dll
 C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Tests\bin\Debug\netcoreapp3.1\Cpbp.Tests.pdb
+C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Tests\bin\Debug\netcoreapp3.1\Cpbp.Core.dll
 C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Tests\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.CodeCoverage.Shim.dll
 C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Tests\bin\Debug\netcoreapp3.1\Microsoft.TestPlatform.CoreUtilities.dll
 C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Tests\bin\Debug\netcoreapp3.1\Microsoft.TestPlatform.PlatformAbstractions.dll
@@ -88,9 +86,11 @@ C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Tests\bin\Debug\netcoreapp3.1\zh-Hans
 C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Tests\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
 C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Tests\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
 C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Tests\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Tests\bin\Debug\netcoreapp3.1\Cpbp.Core.dll
 C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Tests\bin\Debug\netcoreapp3.1\Cpbp.dll
 C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Tests\bin\Debug\netcoreapp3.1\Cpbp.pdb
+C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Tests\obj\Debug\netcoreapp3.1\Cpbp.Tests.csprojAssemblyReference.cache
+C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Tests\obj\Debug\netcoreapp3.1\Cpbp.Tests.AssemblyInfoInputs.cache
+C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Tests\obj\Debug\netcoreapp3.1\Cpbp.Tests.AssemblyInfo.cs
 C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Tests\obj\Debug\netcoreapp3.1\Cpbp.Tests.csproj.CopyComplete
 C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Tests\obj\Debug\netcoreapp3.1\Cpbp.Tests.dll
 C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Tests\obj\Debug\netcoreapp3.1\Cpbp.Tests.pdb

@@ -1,4 +1,10 @@
-﻿Some features have been removed from the library to simplify the infrastructure. these features can be added manually later, according to the needs of the application.
+﻿v 2.0.1
+
+Type of application parameters property changed from string to dictionary (CpbpApplication.cs property)
+
+v 2.0.x
+
+Some features have been removed from the library to simplify the infrastructure. these features can be added manually later, according to the needs of the application.
 Changes were also made in some parts of the library. I recommend that you do not upgrade your version without reviewing the changes.
 
 CpbpProgram.cs, Cppb Application.cs and other objects many changes for simply using experiences.

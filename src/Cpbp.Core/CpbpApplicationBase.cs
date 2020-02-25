@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace Cpbp.Core
@@ -13,7 +14,7 @@ namespace Cpbp.Core
         /// <summary>
         /// if a parameter value is passed for the application, this value will be automatically set to this field by Cpbp
         /// </summary>
-        public string[] ApplicationParameters { get; set; }
+        public Dictionary<string, string> ApplicationParameters { get; set; }
         /// <summary>
         /// application partition performance value (in seconds)
         /// </summary>

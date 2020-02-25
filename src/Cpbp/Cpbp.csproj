@@ -6,7 +6,7 @@
     <AssemblyName>Cpbp</AssemblyName>
     <PackageId>Cpbp</PackageId>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2.0.0.0</Version>
+    <Version>2.0.1</Version>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/brkmustu/Cpbp</RepositoryUrl>
     <PackageTags>Cpbp Cli CliApplication CommandPrompt Terminal Boilerplate</PackageTags>
@@ -19,33 +19,7 @@
     <Description>Cpbp is a cli (command line interface) application infrastructure.</Description>
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <PackageReleaseNotes>Some features have been removed from the library to simplify the infrastructure. these features can be added manually later, according to the needs of the application.
-Changes were also made in some parts of the library. I recommend that you do not upgrade your version without reviewing the changes.
-
-CpbpProgram.cs, Cppb Application.cs and other objects many changes for simply using experiences.
-
-1. CpbpProgram changes;
-
-    - ProgramStart&lt;&gt; method is removed
-    - SetArguments method is removed
-    ...
-
-2. CpbpApplication changes;
-
-    - ExecutationOrder property removed (because for large applications it was difficult to manage this feature of Cpbp through a feature on CpbpApplication).
-    - IsRequired property changed abstract to virtual (this property will be false by default, so it was changed to avoid creating code redundancy when not needed).
-    - ApplicationParameter to ApplicationParameters (this change has been made to manage the situation that more than one parameter is required for a Cpbp application.)
-    - LogBuilder property removed
-    - IsThrowException property removed 
-    - Exception property removed
-    - IsRequired property removed
-    ...
-
-3. ICpbpApplicationHandler changes;
-
-    - Project moved to home directory. Hence Cpbp.Dependency namespace was removed.
-    - The parameter of the "Handle" method has been changed to string array.
-    ...</PackageReleaseNotes>
+    <PackageReleaseNotes>type of application parameters property changed from string to dictionary</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
@@ -63,6 +37,7 @@ CpbpProgram.cs, Cppb Application.cs and other objects many changes for simply us
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Cpbp.Core" Version="1.0.1" />
     <PackageReference Include="SimpleInjector" Version="4.9.0" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.7.0" />
   </ItemGroup>
@@ -72,10 +47,6 @@ CpbpProgram.cs, Cppb Application.cs and other objects many changes for simply us
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Cpbp.Core\Cpbp.Core.csproj" />
   </ItemGroup>
 
 </Project>

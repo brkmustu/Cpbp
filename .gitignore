@@ -2,6 +2,14 @@ src/.vs
 src/packages
 src/Cpbp/bin
 src/Cpbp/obj
+src/Cpbp.Core/bin
+src/Cpbp.Core/obj
+src/Cpbp.Test/bin
+src/Cpbp.Test/obj
+/src/Cpbp.Core/bin
+/src/Cpbp.Core/obj
+/src/Cpbp.Test/bin
+/src/Cpbp.Test/obj
 /src/Cpbp/lib/net472
 /src/Cpbp/Cpbp.1.0.4.nupkg
 /src/Cpbp/Cpbp.1.0.3.nupkg
@@ -19,3 +27,4 @@ src/Cpbp/obj
 /Samples/SimpleUsage/bin/Debug
 /Samples/WithModuleUsage/obj/Debug
 /Samples/WithModuleUsage/bin/Debug
+/src/Cpbp.Core/bin/Debug/Cpbp.Core.1.0.0.nupkg
