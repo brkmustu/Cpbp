@@ -91,7 +91,6 @@ C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Tests\bin\Debug\netcoreapp3.1\zh-Hant
 C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Tests\bin\Debug\netcoreapp3.1\Cpbp.Core.dll
 C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Tests\bin\Debug\netcoreapp3.1\Cpbp.dll
 C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Tests\bin\Debug\netcoreapp3.1\Cpbp.pdb
-C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Tests\bin\Debug\netcoreapp3.1\Cpbp.Core.pdb
 C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Tests\obj\Debug\netcoreapp3.1\Cpbp.Tests.csproj.CopyComplete
 C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Tests\obj\Debug\netcoreapp3.1\Cpbp.Tests.dll
 C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Tests\obj\Debug\netcoreapp3.1\Cpbp.Tests.pdb

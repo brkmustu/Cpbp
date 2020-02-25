@@ -8,7 +8,7 @@
           "build/netstandard1.0/coverlet.collector.targets": {}
         }
       },
-      "Cpbp.Core/1.0.0": {
+      "Cpbp.Core/1.0.1": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Cpbp.Core.dll": {}
@@ -2060,11 +2060,11 @@
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
       },
-      "Cpbp/2.0.0": {
+      "Cpbp/2.0.1": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "Cpbp.Core": "1.0.0",
+          "Cpbp.Core": "1.0.1",
           "SimpleInjector": "4.9.0",
           "System.ComponentModel": "4.0.1",
           "System.ComponentModel.Annotations": "4.7.0"
@@ -2106,14 +2106,14 @@
         "coverlet.collector.nuspec"
       ]
     },
-    "Cpbp.Core/1.0.0": {
-      "sha512": "od6GfV+ajhhtDOBC0zc39rauNQkUtBwJ/x4/feNKlRgPjioSMzm2BNFOgwe4qUjMWJe6S4ntgUac8PmZKs6FOA==",
+    "Cpbp.Core/1.0.1": {
+      "sha512": "opdPks/5SkQNCOr9u0rDQQg5yfGEh778NkATQahbA2EHeqcUCopi9Y0UMrW/MeRtn53j7DfQv/sAF2gDi/S5YQ==",
       "type": "package",
-      "path": "cpbp.core/1.0.0",
+      "path": "cpbp.core/1.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "cpbp.core.1.0.0.nupkg.sha512",
+        "cpbp.core.1.0.1.nupkg.sha512",
         "cpbp.core.nuspec",
         "lib/net452/Cpbp.Core.dll",
         "lib/net472/Cpbp.Core.dll",
@@ -7036,7 +7036,7 @@
         "system.xml.xpath.xmldocument.nuspec"
       ]
     },
-    "Cpbp/2.0.0": {
+    "Cpbp/2.0.1": {
       "type": "project",
       "path": "../Cpbp/Cpbp.csproj",
       "msbuildProject": "../Cpbp/Cpbp.csproj"
@@ -7044,7 +7044,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "Cpbp >= 2.0.0",
+      "Cpbp >= 2.0.1",
       "MSTest.TestAdapter >= 2.0.0",
       "MSTest.TestFramework >= 2.0.0",
       "Microsoft.NET.Test.Sdk >= 16.2.0",

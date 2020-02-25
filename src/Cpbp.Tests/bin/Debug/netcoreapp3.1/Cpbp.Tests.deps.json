@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v3.1": {
       "Cpbp.Tests/1.0.0": {
         "dependencies": {
-          "Cpbp": "2.0.0",
+          "Cpbp": "2.0.1",
           "MSTest.TestAdapter": "2.0.0",
           "MSTest.TestFramework": "2.0.0",
           "Microsoft.NET.Test.Sdk": "16.2.0",
@@ -20,6 +20,14 @@
         }
       },
       "coverlet.collector/1.0.1": {},
+      "Cpbp.Core/1.0.0": {
+        "runtime": {
+          "lib/netstandard2.0/Cpbp.Core.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "Microsoft.CodeCoverage/16.2.0": {
         "runtime": {
           "lib/netcoreapp1.0/Microsoft.VisualStudio.CodeCoverage.Shim.dll": {
@@ -1338,7 +1346,7 @@
           }
         }
       },
-      "Cpbp/2.0.0": {
+      "Cpbp/2.0.1": {
         "dependencies": {
           "Cpbp.Core": "1.0.0",
           "SimpleInjector": "4.9.0",
@@ -1347,11 +1355,6 @@
         },
         "runtime": {
           "Cpbp.dll": {}
-        }
-      },
-      "Cpbp.Core/1.0.0": {
-        "runtime": {
-          "Cpbp.Core.dll": {}
         }
       }
     }
@@ -1368,6 +1371,13 @@
       "sha512": "sha512-RAuno8s7DBGo2IdV/1d8YSnXMd/728K3PBT5R6/kfGx1yunBZmavlaFQfhGe7Q7N2nUMkvVET+7ITn3+KSg+Uw==",
       "path": "coverlet.collector/1.0.1",
       "hashPath": "coverlet.collector.1.0.1.nupkg.sha512"
+    },
+    "Cpbp.Core/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-od6GfV+ajhhtDOBC0zc39rauNQkUtBwJ/x4/feNKlRgPjioSMzm2BNFOgwe4qUjMWJe6S4ntgUac8PmZKs6FOA==",
+      "path": "cpbp.core/1.0.0",
+      "hashPath": "cpbp.core.1.0.0.nupkg.sha512"
     },
     "Microsoft.CodeCoverage/16.2.0": {
       "type": "package",
@@ -2111,12 +2121,7 @@
       "path": "system.xml.xpath.xmldocument/4.0.1",
       "hashPath": "system.xml.xpath.xmldocument.4.0.1.nupkg.sha512"
     },
-    "Cpbp/2.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Cpbp.Core/1.0.0": {
+    "Cpbp/2.0.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

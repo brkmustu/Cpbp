@@ -85,7 +85,7 @@
       }
     },
     "C:\\Users\\bmustu\\source\\repos\\Cpbp\\src\\Cpbp\\Cpbp.csproj": {
-      "version": "2.0.0",
+      "version": "2.0.1",
       "restore": {
         "projectUniqueName": "C:\\Users\\bmustu\\source\\repos\\Cpbp\\src\\Cpbp\\Cpbp.csproj",
         "projectName": "Cpbp",
@@ -131,7 +131,7 @@
           "dependencies": {
             "Cpbp.Core": {
               "target": "Package",
-              "version": "[1.0.0, )"
+              "version": "[1.0.1, )"
             },
             "SimpleInjector": {
               "target": "Package",
@@ -148,7 +148,7 @@
           "dependencies": {
             "Cpbp.Core": {
               "target": "Package",
-              "version": "[1.0.0, )"
+              "version": "[1.0.1, )"
             },
             "SimpleInjector": {
               "target": "Package",
@@ -165,7 +165,7 @@
           "dependencies": {
             "Cpbp.Core": {
               "target": "Package",
-              "version": "[1.0.0, )"
+              "version": "[1.0.1, )"
             },
             "NETStandard.Library": {
               "suppressParent": "All",

@@ -4,3 +4,4 @@ C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Core\obj\Debug\net452\Cpbp.Core.Assem
 C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Core\obj\Debug\net452\Cpbp.Core.AssemblyInfo.cs
 C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Core\obj\Debug\net452\Cpbp.Core.dll
 C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Core\obj\Debug\net452\Cpbp.Core.pdb
+C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Core\obj\Debug\net452\Cpbp.Core.csprojAssemblyReference.cache
