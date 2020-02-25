@@ -1,8 +1,0 @@
-C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Core\bin\Debug\netstandard2.0\Cpbp.Core.deps.json
-C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Core\bin\Debug\netstandard2.0\Cpbp.Core.dll
-C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Core\bin\Debug\netstandard2.0\Cpbp.Core.pdb
-C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Core\obj\Debug\netstandard2.0\Cpbp.Core.AssemblyInfoInputs.cache
-C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Core\obj\Debug\netstandard2.0\Cpbp.Core.AssemblyInfo.cs
-C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Core\obj\Debug\netstandard2.0\Cpbp.Core.dll
-C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Core\obj\Debug\netstandard2.0\Cpbp.Core.pdb
-C:\Users\bmustu\source\repos\Cpbp\src\Cpbp.Core\obj\Debug\netstandard2.0\Cpbp.Core.csprojAssemblyReference.cache
