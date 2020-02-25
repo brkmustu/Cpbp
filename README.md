@@ -3,17 +3,23 @@ Command prompt boilerplate
 
 Cpbp is a cli (command line interface) application infrastructure.
 
-#### Simple Usage
+#### Firstly
 
-To use Cpbp in a simple way, create an application section that inherits the ```Cpbp.Contracts.CpbpApplication``` class and add the codes that you want to execute in that application section.
-You should create a ```... ApplicationHandler``` class that inherits the ```Cpbp.Dependency.ICpbpApplicationHandler``` interface and add your code here.
+To use Cpbp in a simple way, create an application section that inherits the ```Cpbp.CpbpApplication``` class and add the codes that you want to execute in that application section.
 
-Finally, just inherit the ```Program``` class, the main class of your console application, from ```CpbpProgram``` and call the ```ProgramStart``` method to send ```string [] args``` as a parameter in the ```Main``` method below.
-```ProgramStart(args, new System.Reflection.Assembly[] { typeof(Program).Assembly });```
+    public class FirstApplication : Cpbp.CpbpApplication
+    {
+    }
 
-#### Module Usage
+You should create a ```... ApplicationHandler``` class that inherits the ```Cpbp.Core.ICpbpApplicationHandler``` interface and add your code here.
 
-You can examine the sample project for module usage. the relevant documentation will be added soon.
+    public class FirstApplicationHandler : Cpbp.Core.ICpbpApplicationHandler<FirstApplication>
+    {
+        public void Handle(FirstApplication application)
+        {
+            Console.WriteLine("Hello from first application.");
+        }
+    }
 
 ### You can easily run your console application using fluent interface
 
@@ -29,3 +35,5 @@ You can examine the sample project for module usage. the relevant documentation 
                 )
                 .GetProgram()
                 .Run();
+
+
