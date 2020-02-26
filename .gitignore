@@ -19,3 +19,11 @@ src/Cpbp/obj
 /Samples/SimpleUsage/bin/Debug
 /Samples/WithModuleUsage/obj/Debug
 /Samples/WithModuleUsage/bin/Debug
+/src/Cpbp.Core/obj
+/src/Cpbp.Core/bin/Debug
+/src/Cpbp.Tests/obj/project.assets.json
+/src/Cpbp.Tests/obj/Debug/netcoreapp3.1
+/src/Cpbp.Tests/obj/Cpbp.Tests.csproj.nuget.g.targets
+/src/Cpbp.Tests/obj/Cpbp.Tests.csproj.nuget.g.props
+/src/Cpbp.Tests/obj/Cpbp.Tests.csproj.nuget.dgspec.json
+/src/Cpbp.Tests/obj/Cpbp.Tests.csproj.nuget.cache
