@@ -2,41 +2,17 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net452;net472;</TargetFrameworks>
-    <Version>1.0.1</Version>
+    <Version>1.0.1.1</Version>
     <RepositoryUrl>https://github.com/brkmustu/Cpbp</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Cpbp Cli CliApplication CommandPrompt Terminal Boilerplate</PackageTags>
     <Description>Cpbp is a cli (command line interface) application infrastructure.</Description>
     <Copyright>M. Burak Muştu</Copyright>
     <Authors>M. Burak Muştu</Authors>
-    <PackageReleaseNotes>Some features have been removed from the library to simplify the infrastructure. these features can be added manually later, according to the needs of the application.
-Changes were also made in some parts of the library. I recommend that you do not upgrade your version without reviewing the changes.
-
-CpbpProgram.cs, Cppb Application.cs and other objects many changes for simply using experiences.
-
-1. CpbpProgram changes;
-
-    - ProgramStart&lt;&gt; method is removed
-    - SetArguments method is removed
-    ...
-
-2. CpbpApplication changes;
-
-    - ExecutationOrder property removed (because for large applications it was difficult to manage this feature of Cpbp through a feature on CpbpApplication).
-    - IsRequired property changed abstract to virtual (this property will be false by default, so it was changed to avoid creating code redundancy when not needed).
-    - ApplicationParameter to ApplicationParameters (this change has been made to manage the situation that more than one parameter is required for a Cpbp application.)
-    - LogBuilder property removed
-    - IsThrowException property removed 
-    - Exception property removed
-    - IsRequired property removed
-    ...
-
-3. ICpbpApplicationHandler changes;
-
-    - Project moved to home directory. Hence Cpbp.Dependency namespace was removed.
-    - The parameter of the "Handle" method has been changed to string array.
-    ...</PackageReleaseNotes>
+    <PackageReleaseNotes>bugfix</PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>Cpbp.Core.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
 </Project>
