@@ -18,8 +18,8 @@
     <AssemblyOriginatorKeyFile>Cpbp.snk</AssemblyOriginatorKeyFile>
     <Description>Cpbp is a cli (command line interface) application infrastructure.</Description>
     <PackageLicenseExpression></PackageLicenseExpression>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <PackageReleaseNotes>type of application parameters property changed from string to dictionary</PackageReleaseNotes>
+    <PackageLicenseFile></PackageLicenseFile>
+    <PackageReleaseNotes>bugfix - System.IO.FileLoadException : Could not load file or assembly 'Cpbp.Core, Version=1.0.1.0, Culture=neutral, PublicKeyToken=null' or one of its dependencies.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
@@ -40,13 +40,6 @@
     <PackageReference Include="Cpbp.Core" Version="1.0.1" />
     <PackageReference Include="SimpleInjector" Version="4.9.0" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.7.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="..\..\LICENSE">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
   </ItemGroup>
 
 </Project>
