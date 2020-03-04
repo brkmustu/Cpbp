@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net452;net472;</TargetFrameworks>
-    <Version>1.0.1</Version>
+    <Version>1.0.1.1</Version>
     <RepositoryUrl>https://github.com/brkmustu/Cpbp</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Cpbp Cli CliApplication CommandPrompt Terminal Boilerplate</PackageTags>
@@ -11,6 +11,8 @@
     <Authors>M. Burak Muştu</Authors>
     <PackageReleaseNotes>bugfix - System.IO.FileLoadException : Could not load file or assembly 'Cpbp.Core, Version=1.0.1.0, Culture=neutral, PublicKeyToken=null' or one of its dependencies.</PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>Cpbp.Core.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
 </Project>

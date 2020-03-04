@@ -6,7 +6,7 @@
     <AssemblyName>Cpbp</AssemblyName>
     <PackageId>Cpbp</PackageId>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2.0.1</Version>
+    <Version>2.0.1.1</Version>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/brkmustu/Cpbp</RepositoryUrl>
     <PackageTags>Cpbp Cli CliApplication CommandPrompt Terminal Boilerplate</PackageTags>
@@ -37,7 +37,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Cpbp.Core" Version="1.0.1" />
+    <PackageReference Include="Cpbp.Core" Version="1.0.1.1" />
     <PackageReference Include="SimpleInjector" Version="4.9.0" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.7.0" />
   </ItemGroup>
